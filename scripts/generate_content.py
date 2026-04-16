@@ -58,6 +58,7 @@ def get_issue_number() -> int:
 def generate_header(issue_num: int) -> str:
     """Generate the markdown header for a new issue."""
     now = datetime.now()
+    # Use %-m on Linux/Mac to avoid zero-padded month; falls back gracefully
     month_str = now.strftime("%Y 年 %m 月")
     return (
         f"# 《HelloGitHub》第 {issue_num} 期\n"
@@ -95,52 +96,19 @@ def create_content_file(issue_num: int, lang: str = "cn") -> Path:
 
     Args:
         issue_num: The issue number to generate.
-        lang: Language code ('cn' or 'en').
+        lang: Language code ('cn' or 'en'). Defaults to 'cn'.
 
     Returns:
         Path to the created file.
+
+    Raises:
+        ValueError: If an unsupported language code is provided.
     """
+    if lang not in LANGUAGES:
+        raise ValueError(f"Unsupported language '{lang}'. Choose from: {list(LANGUAGES.keys())}")
+
     suffix = LANGUAGES.get(lang, "")
     filename = CONTENT_DIR / f"HelloGitHub{issue_num:03d}{suffix}.md"
 
     if filename.exists():
-        print(f"[!] File already exists: {filename}")
-        return filename
-
-    content = generate_header(issue_num)
-    for category in CATEGORIES:
-        content += generate_category_section(category)
-
-    filename.write_text(content, encoding="utf-8")
-    print(f"[+] Created: {filename}")
-    return filename
-
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Generate a new HelloGitHub monthly issue file."
-    )
-    parser.add_argument(
-        "--issue",
-        type=int,
-        default=None,
-        help="Issue number to generate (default: auto-detect next)",
-    )
-    parser.add_argument(
-        "--lang",
-        type=str,
-        default="cn",
-        choices=list(LANGUAGES.keys()),
-        help="Language for the content file (default: cn)",
-    )
-    args = parser.parse_args()
-
-    issue_num = args.issue if args.issue else get_issue_number()
-    print(f"[*] Generating issue #{issue_num} ({args.lang})...")
-
-    CONTENT_DIR.mkdir(parents=True, exist_ok=True)
-    create_content_file(issue_num, lang=args.lang)
-
-
-if __name__ == "__main__":
-    main()
+        print(f"[!] File already exists: {
