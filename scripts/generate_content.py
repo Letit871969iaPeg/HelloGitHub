@@ -103,12 +103,22 @@ def create_content_file(issue_num: int, lang: str = "cn") -> Path:
 
     Raises:
         ValueError: If an unsupported language code is provided.
+        FileExistsError: If the target file already exists (avoid accidental overwrite).
     """
     if lang not in LANGUAGES:
         raise ValueError(f"Unsupported language '{lang}'. Choose from: {list(LANGUAGES.keys())}")
 
-    suffix = LANGUAGES.get(lang, "")
-    filename = CONTENT_DIR / f"HelloGitHub{issue_num:03d}{suffix}.md"
+    suffix = LANGUAGES[lang]
+    filename = f"HelloGitHub{issue_num:02d}{suffix}.md"
+    filepath = CONTENT_DIR / filename
 
-    if filename.exists():
-        print(f"[!] File already exists: {
+    # Don't overwrite an existing file — better to be safe
+    if filepath.exists():
+        raise FileExistsError(f"File already exists: {filepath}")
+
+    content = generate_header(issue_num)
+    for category in CATEGORIES:
+        content += generate_category_section(category)
+
+    filepath.write_text(content, encoding="utf-8")
+    return filepath
