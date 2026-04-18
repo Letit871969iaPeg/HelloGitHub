@@ -74,7 +74,7 @@ def generate_header(issue_num: int) -> str:
         f"\n"
         f"![](https://raw.githubusercontent.com/521xueweihan/img_logo/master/logo/catalog.jpeg)\n"
         f"\n"
-        f"**Tips**：如果遇到图片刷不出来的情况，[点击](https://hellogithub.com/periodical/volume/{issue_num:02d}) 换一种浏览方式。\n"
+        f"**Tips**：如果遇到图片刷不出来的情况，[点击](https://hellogithub.com/periodical/volume/{issue_num:03d}) 换一种浏览方式。\n"
         f"\n"
         f"<p align=\"center\">\n"
         f"  <img src=\"https://github.com/521xueweihan/HelloGitHub/assets/1rc3w9c/2eda1e3f-b2b2-423f-b952-d3a3b2a3e0e9\" style=\"max-width:100%\" />\n"
@@ -103,22 +103,4 @@ def create_content_file(issue_num: int, lang: str = "cn") -> Path:
 
     Raises:
         ValueError: If an unsupported language code is provided.
-        FileExistsError: If the target file already exists (avoid accidental overwrite).
-    """
-    if lang not in LANGUAGES:
-        raise ValueError(f"Unsupported language '{lang}'. Choose from: {list(LANGUAGES.keys())}")
-
-    suffix = LANGUAGES[lang]
-    filename = f"HelloGitHub{issue_num:02d}{suffix}.md"
-    filepath = CONTENT_DIR / filename
-
-    # Don't overwrite an existing file — better to be safe
-    if filepath.exists():
-        raise FileExistsError(f"File already exists: {filepath}")
-
-    content = generate_header(issue_num)
-    for category in CATEGORIES:
-        content += generate_category_section(category)
-
-    filepath.write_text(content, encoding="utf-8")
-    return filepath
+        Fil
