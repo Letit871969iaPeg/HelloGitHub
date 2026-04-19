@@ -31,6 +31,8 @@
 ### C++ 项目
 2、[duckdb](https://hellogithub.com/periodical/statistics/click?target=https://github.com/duckdb/duckdb)：为分析而生的进程内 SQL OLAP 数据库。DuckDB 是一个嵌入式分析型数据库，无需安装服务器，支持直接查询 CSV、Parquet、JSON 等文件，拥有极快的查询速度，适合数据分析场景。
 
+<!-- 个人笔记：DuckDB 在本地数据分析中表现出色，可以直接用 SQL 查询 CSV 文件，省去了导入数据库的麻烦。 -->
+
 ### Go 项目
 3、[lazydocker](https://hellogithub.com/periodical/statistics/click?target=https://github.com/jesseduffield/lazydocker)：懒人必备的 Docker 终端 UI 工具。一个用 Go 编写的终端 UI 工具，让你可以在终端中轻松管理 Docker 容器、镜像、卷等资源，无需记忆复杂的 Docker 命令。
 
@@ -42,6 +44,8 @@
 <!-- 个人笔记：rich 库非常好用，已在自己的脚本中替换了 print，强烈推荐！ -->
 
 5、[httpx](https://hellogithub.com/periodical/statistics/click?target=https://github.com/encode/httpx)：功能全面的新一代 Python HTTP 客户端。HTTPX 是一个功能齐全的 HTTP 客户端，支持同步和异步 API，兼容 HTTP/1.1 和 HTTP/2，是 requests 库的现代替代品。
+
+<!-- 个人笔记：异步场景下 httpx 比 aiohttp 更易用，API 风格和 requests 几乎一致，迁移成本很低。 -->
 
 ### JavaScript 项目
 6、[Flowise](https://hellogithub.com/periodical/statistics/click?target=https://github.com/FlowiseAI/Flowise)：拖拽式构建 LLM 应用的低代码工具。Flowise 是一个开源的低代码工具，通过拖拽节点的方式构建定制化的 LLM 流程和 AI 应用，支持 LangChain 和 LlamaIndex，降低了 AI 应用的开发门槛。
@@ -63,4 +67,4 @@
 
 ## 声明
 
-<a rel="license" href="https://creativecommons.org/licenses/by-n
+<a rel="licens
