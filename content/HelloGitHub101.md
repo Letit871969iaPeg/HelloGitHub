@@ -39,6 +39,8 @@
 ### Python 项目
 4、[rich](https://hellogithub.com/periodical/statistics/click?target=https://github.com/Textualize/rich)：让终端输出变得丰富多彩的 Python 库。Rich 是一个用于在终端中渲染富文本和精美格式的 Python 库，支持语法高亮、表格、进度条、Markdown 等多种格式，让你的命令行程序输出更加美观。
 
+<!-- 个人笔记：rich 库非常好用，已在自己的脚本中替换了 print，强烈推荐！ -->
+
 5、[httpx](https://hellogithub.com/periodical/statistics/click?target=https://github.com/encode/httpx)：功能全面的新一代 Python HTTP 客户端。HTTPX 是一个功能齐全的 HTTP 客户端，支持同步和异步 API，兼容 HTTP/1.1 和 HTTP/2，是 requests 库的现代替代品。
 
 ### JavaScript 项目
@@ -61,4 +63,4 @@
 
 ## 声明
 
-<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width: 0" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"></a><br>本作品采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">署名-非商业性使用-禁止演绎 4.0 国际</a> 进行许可。
+<a rel="license" href="https://creativecommons.org/licenses/by-n
