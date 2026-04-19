@@ -82,6 +82,8 @@ def generate_header(issue_num: int) -> str:
         f"\n"
         f"---\n"
         f"\n"
+        f"<!-- Generated on {now.strftime('%Y-%m-%d')} -->\n"
+        f"\n"
     )
 
 
